@@ -1,0 +1,156 @@
+<?php
+namespace App\Api;
+
+/**
+ * 会员接口
+ *
+ * @author Meroc Chen <398515393@qq.com> 2018-01-30
+ */
+class Member extends BaseApi {
+
+  public function getRules() {
+  
+    return $this->rules([
+    
+      'register' => [
+      
+        'mobile' => 'mobile|string|true||会员手机号',
+
+        'member_name' => 'member_name|string|true||会员名称'
+      
+      ],
+
+      'loginViaCode' => [
+      
+        'mobile' => 'mobile|string|true||会员手机号',
+
+        'code' => 'code|string|true||验证码'
+      
+      ],
+
+      'loginViaPassword' => [
+      
+        'mobile' => 'mobile|string|true||会员手机号',
+
+        'password' => 'password|string|true||验证码'
+      
+      ],
+
+      'editMember' => [
+      
+        'member_id' => 'id|int|true||用户表序号',
+
+        'member_name' => 'member_name|string|false||用户昵称',
+      
+        'member_identity' => 'member_identity|string|false||用户 ID',
+
+        'sex' => 'sex|int|false||性别'
+      
+      ],
+
+      'updatePassword' => [
+
+        'member_id' => 'member_id|int|false||用户id',
+      
+        'old_password' => 'old_password|string|false||旧密码',
+
+        'new_password' => 'new_password|string|true||新密码',
+      
+      ],
+
+      'existAccount' => [
+      
+        'account' => 'account|string|true||账号'
+      
+      ]
+    
+    ]);
+  
+  }
+
+  /**
+   * 用户注册接口
+   * @desc 用户注册接口
+   *
+   * @param 
+   * @param
+   */
+  public function register() {
+
+    $params = $this->retriveRuleParams(__FUNCTION__);
+  
+    return $this->dm->register($params['mobile'], $params['member_name']);
+  
+  }
+
+  /**
+   * 用户手机验证码登录
+   * @desc 用户手机验证码登录
+   *
+   * @return int num
+   */
+  public function loginViaCode() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+
+    return $this->dm->loginViaCode($params['mobile'], $params['code']);
+  
+  }
+
+  /**
+   * 用户账号密码登录
+   * @desc 用户账号密码登录接口
+   *
+   * @return int num
+   */
+  public function loginViaPassword() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+
+    return $this->dm->loginViaPassword($params['mobile'], $params['password']);
+  
+  }
+
+  /**
+   * 编辑用户信息
+   * @desc 编辑用户信息
+   *
+   * @return int num
+   */
+  public function editMember() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+  
+    return $this->dm->editMember($params);
+
+  }
+
+  /**
+   * 会员修改手机号
+   * @desc 会员修改手机号
+   *
+   * @return boolean true/false
+   */
+  public function updatePassword() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+  
+    return $this->dm->updatePassword($params['member_id'], $params['old_password'], $params['new_password']);
+  
+  }
+
+  /**
+   * 检查账号是否存在
+   * @desc 检查账号是否存在
+   *
+   * @return boolean true/false
+   */
+  public function existAccount() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+  
+    return $this->dm->existAccount($params['account']);
+  
+  }
+
+}
