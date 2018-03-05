@@ -52,6 +52,10 @@ class Album extends BaseApi {
       
         'title' => 'title|string|false||标题',
 
+        'author_name' => 'author_name|string|false||作者名称',
+
+        'album_type' => 'album_type|string|false||专辑类型:1.官方，2.达人',
+
         'status' => 'status|int|false||专辑状态',
 
         'order' => 'order|string|false|id desc|排序',
@@ -130,6 +134,8 @@ class Album extends BaseApi {
     return $this->dm->listQuery(
       $params['member_id'], 
       $params['title'], 
+      $params['author_name'], 
+      $params['album_type'], 
       $params['status'], 
       $params['order'], 
       $params['all'], 
