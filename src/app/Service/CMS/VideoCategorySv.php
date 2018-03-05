@@ -1,5 +1,5 @@
 <?php
-namespace App\Service\Video;
+namespace App\Service\CMS;
 
 use App\Service\BaseService;
 use Core\Service\CurdSv;
@@ -37,7 +37,7 @@ class VideoCategorySv extends BaseService {
 
       'display_order' => $displayOrder,
 
-      'status' => $status,
+      'status' => $status, 
 
       'thumbnail' => $thumbnail,
 

@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain;
 
-use App\Service\Video\VideoSv;
+use App\Service\CMS\VideoSv;
 
 /**
  * 视频服务域

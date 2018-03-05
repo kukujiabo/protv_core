@@ -12,7 +12,11 @@ class Album extends BaseModel {
   
     'title' => 'like',
 
-    'id' => 'in'
+    'id' => 'in',
+
+    'member_id' => 'in',
+
+    'author_id' => 'range'
   
   ];
 

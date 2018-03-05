@@ -9,4 +9,10 @@ namespace App\Model;
 class Admin extends BaseModel {
 
 
+  protected $_queryOptionRule = [
+  
+    'admin_name' => 'like'
+  
+  ];
+
 }

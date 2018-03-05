@@ -48,8 +48,6 @@ class Album extends BaseApi {
 
       'listQuery' => [
       
-        'member_id' => 'member_id|int|false||所有者id',
-      
         'title' => 'title|string|false||标题',
 
         'author_name' => 'author_name|string|false||作者名称',
@@ -130,9 +128,8 @@ class Album extends BaseApi {
   public function listQuery() {
   
     $params = $this->retriveRuleParams(__FUNCTION__);
-  
+
     return $this->dm->listQuery(
-      $params['member_id'], 
       $params['title'], 
       $params['author_name'], 
       $params['album_type'], 

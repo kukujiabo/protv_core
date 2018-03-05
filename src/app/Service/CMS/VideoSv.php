@@ -1,5 +1,5 @@
 <?php
-namespace App\Service\Video;
+namespace App\Service\CMS;
 
 use App\Service\BaseService;
 use Core\Service\CurdSv;

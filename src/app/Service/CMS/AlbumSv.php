@@ -1,5 +1,6 @@
 <?php
-namespace App\Service\Video;
+namespace App\Service\CMS;
+
 use App\Model\Member;
 use App\Model\Author;
 use Core\Service\CurdSv;
@@ -91,24 +92,114 @@ class AlbumSv extends BaseService {
    *
    * @return array $data
    */
-  public function listQuery($query, $order, $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
+  public function listQuery($title, $authorName, $albumType, $status = NULL, $order = 'id desc', $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
+
+    $query = [];
   
-    $options = [];
     $albums = [];
+
     $members = [];
+
     $admins = [];
+
+    $memberSv = new MemberSv();
+
+    $adminSv = new AdminSv();
+
+    isset($title) ? $query['title'] = $title : NULL;
+
+    isset($status) ? $query['status'] = $status : NULL;
+
+    $albumType == 1 ? $query['author_id'] = 0 : ( $albumType == 2 ? $query['author_id'] = 'g|0' : NULL );
+
+    if (isset($authorName)) {
+    
+      if ($albumType == 1) {
+      
+        $aids = [];
+
+        $admins = $adminSv->all([ 'admin_name' => $authorName ]);
+
+        foreach($admins as $admin) {
+        
+          array_push($aids, $admin['id']);
+        
+        }
+
+        $query['member_id'] = implode(',', $aids);
+
+      } elseif ($albumType == 2) {
+
+        $aids = [];
+
+        $members = $memberSv->all([ 'member_name' => $authorName ]);
+
+        foreach($members as $member) {
+        
+          array_push($aids, $member['id']);
+        
+        }
+
+        $query['member_id'] = implode(',', $aids);
+      
+      } else {
+      
+        $aids = [];
+
+        $members = $memberSv->all([ 'member_name' => $authorName ]);
+
+        $admins = $adminSv->all([ 'admin_name' => $authorName ]);
+
+        foreach($members as $member) {
+        
+          array_push($aids, $member['id']);
+        
+        }
+        foreach($admins as $admin) {
+        
+          array_push($aids, $admin['id']);
+        
+        }
+
+        $aids = array_unique($aids);
+
+        if (empty($aids)) {
+        
+          return [
+
+            'list' => [],
+
+            'page' => $page,
+
+            'total' => 0
+          
+          
+          ];
+        
+        }
+
+        $query['member_id'] = implode(',', $aids);
+      
+      
+      }
+    
+    }
 
     if ($all) {
 
-      $albums = $this->all($options, $order);
+      $albums = $this->all($query, $order);
+
+      $tmpAlbums = $albums;
     
     } else {
     
       $albums = $this->queryList($query, $fields, $order, $page, $pageSize);
+
+      $tmpAlbums = $albums['list'];
     
     }
 
-    foreach ($albums['list'] as $album) {
+    foreach ($tmpAlbums as $album) {
 
       if ($album['author_id']) {
 
@@ -138,17 +229,16 @@ class AlbumSv extends BaseService {
 
       ];
 
-      $memberSv = new MemberSv();
 
       $memberInfo = $memberSv->all($memberCondition);
 
-      foreach($albums['list'] as $key => $album) {
+      foreach($tmpAlbums as $key => $album) {
 
         foreach($memberInfo as $info) {
       
           if ($album['member_id'] && $album['member_id'] == $info['id']) {
         
-            $albums['list'][$key]['author'] = $info['member_name'];
+            $tmpAlbums[$key]['author'] = $info['member_name'];
           
           }
 
@@ -166,17 +256,15 @@ class AlbumSv extends BaseService {
 
       ];
     
-      $adminSv = new AdminSv();
-
       $adminInfo = $adminSv->all($adminCondition);
       
-      foreach($albums['list'] as $key => $album) {
+      foreach($tmpAlbums as $key => $album) {
       
         foreach($adminInfo as $info) {
 
           if (!$album['author_id'] && $album['member_id'] == $info['id']) {
 
-            $albums['list'][$key]['author'] = $info['admin_name'];
+            $tmpAlbums[$key]['author'] = $info['admin_name'];
 
           }
         
@@ -186,7 +274,17 @@ class AlbumSv extends BaseService {
     
     }
 
-    return $albums;
+    if ($all) {
+    
+      return $tmpAlbums;
+    
+    } else {
+    
+      $albums['list'] = $tmpAlbums;
+
+      return $albums;
+    
+    }
   
   }
 

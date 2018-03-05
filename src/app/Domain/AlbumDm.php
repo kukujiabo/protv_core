@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain;
 
-use App\Service\Video\AlbumSv;
+use App\Service\CMS\AlbumSv;
 use App\Service\Crm\MemberSv;
 use App\Service\Admin\AdminSv;
 
@@ -80,34 +80,9 @@ class AlbumDm {
    *
    * @return list data
    */
-  public function listQuery($memberId, $title, $authorName, $albumType, $status, $order, $all, $page, $pageSize) {
+  public function listQuery($title, $authorName, $albumType, $status, $order, $all, $page, $pageSize) {
 
-    $query = [];
-
-    if (isset($memberId)) $query['member_id'] = $memberId;
-
-    if (isset($title)) $query['title'] = $title;
-
-    if (isset($status)) $query['status'] = $status;
-
-    if (isset($authorName)) {
-
-      if ($albumType == 0 || $albumType == 1) {
-      
-        $adminSv = new AdminSv();
-      
-      }
-
-      if ($albumType == 0 || $albumType == 2) {
-
-        $memberSv = new MemberSv();
-
-      }
-    
-    
-    }
-
-    return $this->_alsv->listQuery($query, $order, $all, $page, $pageSize);
+    return $this->_alsv->listQuery($title, $authorName, $albumType, $status, $order, $all, $page, $pageSize);
   
   }
 
