@@ -1,13 +1,12 @@
-<?php
-namespace App\Service\CMS;
+<?php namespace App\Service\CMS;
 
 use App\Service\BaseService;
 use Core\Service\CurdSv;
 
 use App\Service\Crm\MemberSv;
 use App\Service\Admin\AdminSv;
-use App\Service\Video\AlbumSv;
-use App\Service\Video\VideoCategorySv;
+use App\Service\CMS\AlbumSv;
+use App\Service\CMS\VideoCategorySv;
 
 use App\Exception\LogException;
 

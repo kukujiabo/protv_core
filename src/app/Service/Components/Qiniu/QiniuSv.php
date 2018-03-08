@@ -1,7 +1,6 @@
 <?php
 namespace App\Service\Components\Qiniu;
 
-use App\Service\BaseService;
 use App\Service\System\ConfigSv;
 use App\Library\RedisClient;
 use Core\Service\CurdSv;

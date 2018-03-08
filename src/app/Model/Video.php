@@ -8,7 +8,7 @@ namespace App\Model;
  */
 class Video extends BaseModel {
 
-  protected $_queryRuleOption = [
+  protected $_queryOptionRule = [
   
     'title' => 'like',
 
