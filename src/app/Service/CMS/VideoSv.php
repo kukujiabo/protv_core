@@ -66,9 +66,9 @@ class VideoSv extends BaseService {
     /**
      * 从七牛获取视频时长
      */
-    $info = Http::httpGet("{$url}?avinfo");
+    $info = json_decode(Http::httpGet("{$url}?avinfo"));
 
-    $newVideo['duration'] = $info['format']['duration'];
+    $newVideo['duration'] = $info->format->duration;
   
     return $this->add($newVideo);
   
