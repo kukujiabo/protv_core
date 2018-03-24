@@ -9,6 +9,7 @@ use App\Service\CMS\AlbumSv;
 use App\Service\CMS\VideoCategorySv;
 
 use App\Exception\LogException;
+use App\Library\Http;
 
 /**
  * 视频服务
@@ -61,6 +62,13 @@ class VideoSv extends BaseService {
       'created_at' => date('Y-m-d H:i:s')
     
     ];
+
+    /**
+     * 从七牛获取视频时长
+     */
+    $info = Http::httpGet("{$url}?avinfo");
+
+    $newVideo['duration'] = $info['format']['duration'];
   
     return $this->add($newVideo);
   
@@ -274,6 +282,11 @@ class VideoSv extends BaseService {
       return $videos;
     
     }
+  
+  }
+
+  public function detail() {
+  
   
   }
 
