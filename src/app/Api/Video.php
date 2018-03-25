@@ -34,6 +34,8 @@ class Video extends BaseApi {
 
         'introduction' => 'introduction|string|false||视频图文信息',
 
+        'duration' => 'duration|string|true||视频时长',
+
         'status' => 'status|int|true||视频状态'
       
       ],
@@ -57,6 +59,8 @@ class Video extends BaseApi {
         'url' => 'url|string|false||视频链接地址',
 
         'introduction' => 'introduction|string|false||视频图文信息',
+
+        'duration' => 'duration|string|false||视频时长',
 
         'status' => 'status|int|false||视频状态'
       

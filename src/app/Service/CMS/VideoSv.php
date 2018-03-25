@@ -33,7 +33,7 @@ class VideoSv extends BaseService {
    *
    * @return boolean true/false
    */
-  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status) {
+  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration) {
 
     $newVideo = [
     
@@ -59,17 +59,12 @@ class VideoSv extends BaseService {
 
       'status' => $status,
 
+      'duration' => $duration,
+
       'created_at' => date('Y-m-d H:i:s')
     
     ];
 
-    /**
-     * 从七牛获取视频时长
-     */
-    $info = json_decode(Http::httpGet("{$url}?avinfo"));
-
-    $newVideo['duration'] = $info->format->duration;
-  
     return $this->add($newVideo);
   
   }
