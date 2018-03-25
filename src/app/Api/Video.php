@@ -127,7 +127,8 @@ class Video extends BaseApi {
       $params['brief'],
       $params['introduction'],
       $params['url'],
-      $params['status']
+      $params['status'],
+      $params['duration']
     );
   
   }
@@ -152,7 +153,8 @@ class Video extends BaseApi {
       $params['brief'],
       $params['introduction'],
       $params['url'],
-      $params['status']
+      $params['status'],
+      $params['duration']
     );
   
   }
