@@ -42,7 +42,7 @@ class Wechat extends BaseApi {
   
     $params = $this->retriveRuleParams(__FUNCTION__);
 
-    return $this->dm->editAppConf($params['app_name'], $params['appid'], $params['appsecret']);
+    return $this->dm->editAppConf($params['app_name'], $params['appid'], $params['appsecret'], $params['title']);
   
   }
 
