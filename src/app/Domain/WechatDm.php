@@ -1,7 +1,7 @@
 <?php
 namespace App\Domain;
 
-use App\Service\Components\Wechat\WechatSv;
+use App\Service\Components\Wechat\WechatAppSv;
 
 class WechatDm {
 
