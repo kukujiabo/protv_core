@@ -7,7 +7,6 @@ CONST WECHAT_PAY_IP          = '139.196.175.163'; //微信支付IP，仅对于�
 CONST WECHAT_UNIFIED_PAY     = 'https://api.mch.weixin.qq.com/pay/unifiedorder'; //微信统一支付地址
 CONST WECHAT_CODE            = 'weixin://wxpay/bizpayurl?appid={APPID}&mch_id={MID}&nonce_str={STR}&product_id={PRODUCT}&time_stamp={TIME}&sign={SIGN}';
 
-CONST //开发者接口
 CONST DEVELOPER_WECHAT_ACCESS_TOKEN = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid={APPID}&secret={APPSECRET}&code={CODE}&grant_type=authorization_code'; // app  微信获取 access_token 地址
 CONST DEVELOPER_WECHAT_ONER_USER_INFO = 'https://api.weixin.qq.com/sns/userinfo?access_token={ACCESS_TOKEN}&openid={OPENID}'; // app  微信获取账户信息
 
@@ -56,5 +55,5 @@ CONST GET_WPS_MENU = 'https://api.weixin.qq.com/cgi-bin/menu/get?access_token={A
 CONST GET_MATERIAL = 'https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token={ACCESS_TOKEN}';
 
 CONST GET_PRIMARY_TEMPLATES = 'https://api.weixin.qq.com/cgi-bin/template/get_all_private_template?access_token={ACCESS_TOKEN}';
-
+ea
 CONST GET_TEMPLATE_ID = 'https://api.weixin.qq.com/cgi-bin/template/api_add_template?access_token={ACCESS_TOKEN}';

@@ -7,6 +7,7 @@ use App\Exception\LogException;
 use App\Exception\ErrorCode;
 use Core\Service\CurdSv;
 use App\Library\RedisClient;
+use App\Service\Crm\Wechat\WechatAuthSv;
 
 /**
  * 会员服务类
@@ -92,6 +93,19 @@ class MemberSv extends BaseService {
       throw new LogException($this->_err->AEPTMSG, $this->_err->AEPTCODE);
     
     }
+  
+  }
+
+  /**
+   * 微信小程序登录
+   *
+   * @param string $code
+   *
+   * @return
+   */
+  public function wxMiniLogin($code) {
+  
+    
   
   }
 
