@@ -244,7 +244,7 @@ class MemberSv extends BaseService {
     
     }
 
-    $auth = $this->findOne([ 'wx_mnopenid' => $wxInfo->openId ]);
+    $auth = $this->findOne([ 'wx_mnopenid' => $wxInfo->openid ]);
 
     if ($auth) {
     
@@ -252,7 +252,7 @@ class MemberSv extends BaseService {
     
     } else {
     
-      $result = $this->createAuthByWxMiniOpenId($wxInfo->openId, $wxInfo->unionid);
+      $result = $this->createAuthByWxMiniOpenId($wxInfo->openid, $wxInfo->unionid);
 
       if ($result) {
       
