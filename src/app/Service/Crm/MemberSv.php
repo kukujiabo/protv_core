@@ -7,7 +7,7 @@ use App\Exception\LogException;
 use App\Exception\ErrorCode;
 use Core\Service\CurdSv;
 use App\Library\RedisClient;
-use App\Components\Wechat\WechatAppSv;
+use App\Service\Components\Wechat\WechatAppSv;
 
 /**
  * 会员服务类
