@@ -238,6 +238,12 @@ class MemberSv extends BaseService {
 
     $wxInfo = $wxApp->getOpenId($code);
 
+    if ($wx->errcode) {
+    
+      return $wx->errmsg;
+    
+    }
+
     $auth = $this->findOne([ 'wx_mnopenid' => $wxInfo->openId ]);
 
     if ($auth) {
