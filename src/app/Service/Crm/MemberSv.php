@@ -238,9 +238,9 @@ class MemberSv extends BaseService {
 
     $wxInfo = $wxApp->getOpenId($code);
 
-    if ($wx->errcode) {
+    if ($wxInfo->errcode) {
     
-      return $wx->errmsg;
+      return $wxInfo->errmsg;
     
     }
 
