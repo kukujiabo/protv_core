@@ -158,4 +158,13 @@ class MemberDm {
   
   }
 
+  /**
+   * 微信小程序登录
+   */
+  public function wechatMiniLogin($appName, $code) {
+  
+    return $this->_memberSv->wechatMiniLogin($appName, $code);
+  
+  }
+
 }
