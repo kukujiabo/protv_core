@@ -159,13 +159,13 @@ trait AuthTrait {
    */
   public function createAuth($account, $password = null) {
   
-    $new = array(
+    $new = [
     
       $this->_acctName => $account,
 
       'created_at' => date('Y-m-d H:i:s')
     
-    );
+    ];
 
     if ($password) {
 
@@ -173,6 +173,34 @@ trait AuthTrait {
 
     }
     
+    return $this->add($new);
+  
+  }
+
+  /**
+   * 用微信小程序openId创建新对象
+   *
+   * @param string openId
+   * @param string unionId
+   *
+   * @return
+   */
+  public function createAuthByWxMiniOpenId($openId, $unionId = NULL) {
+  
+    $new = [
+    
+      'wx_mnopenid' => $openId,
+
+      'created_at' => date('Y-m-d H:i:s')
+
+    ];
+
+    if ($unionId) {
+    
+      $new['wx_unionid'] = $unionId
+    
+    }
+
     return $this->add($new);
   
   }

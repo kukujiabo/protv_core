@@ -7,7 +7,7 @@ use App\Exception\LogException;
 use App\Exception\ErrorCode;
 use Core\Service\CurdSv;
 use App\Library\RedisClient;
-use App\Service\Crm\Wechat\WechatAuthSv;
+use App\Components\Wechat\WechatAppSv;
 
 /**
  * 会员服务类
@@ -48,8 +48,8 @@ class MemberSv extends BaseService {
     
     }
 
-    return $this->createSession($auth['id'], 'member_auth');
-  
+    return $this->createSession($auth['id'], 'member_auth'); 
+
   }
 
   /**
@@ -218,6 +218,41 @@ class MemberSv extends BaseService {
     } else {
     
       return false;
+    
+    }
+  
+  }
+
+  /**
+   * 微信小程序登录
+   * @desc 微信小程序登录
+   *
+   * @param string appName
+   * @param string code
+   *
+   * @return 
+   */
+  public function wechatMiniLogin($appName, $code) {
+  
+    $wxApp = new WechatAppSv($appName);
+
+    $wxInfo = $wxApp->getOpenId($code);
+
+    $auth = $this->findOne([ 'wx_mnopenid' => $wxInfo['openid'] ]);
+
+    if ($auth) {
+    
+      return $this->createSession($auth['id'], 'member_auth'); 
+    
+    } else {
+    
+      $result = $this->createAuthByWxMiniOpenId($wxInfo['openid'], $wxInfo['unionid']);
+
+      if ($result) {
+      
+        return $this->createSession($result, 'member_auth');
+      
+      }
     
     }
   

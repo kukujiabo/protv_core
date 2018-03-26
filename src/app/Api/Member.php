@@ -62,6 +62,14 @@ class Member extends BaseApi {
       
         'account' => 'account|string|true||账号'
       
+      ],
+
+      'wechatMiniLogin' => [
+
+        'app_name' => 'app_name|string|true||微信应用名称',
+      
+        'code' => 'code|string|true||微信code'
+      
       ]
     
     ]);
@@ -151,6 +159,20 @@ class Member extends BaseApi {
   
     return $this->dm->existAccount($params['account']);
   
+  }
+
+  /**
+   * 微信小程序登录
+   * @desc 微信小程序登录
+   *
+   * @return 
+   */
+  public function wechatMiniLogin() {
+  
+    $params = $this->retriveRuleParams(__FUNCTION__);
+
+    return $this->dm->wechatMiniLogin($params['app_name'], $params['code']);
+
   }
 
 }

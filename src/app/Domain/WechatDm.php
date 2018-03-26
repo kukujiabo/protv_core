@@ -40,4 +40,13 @@ class WechatDm {
   
   }
 
+  /**
+   * 微信小程序登录
+   */
+  public function wechatMiniLogin($appName, $code) {
+  
+    return $this->_wxsv->wechatMiniLogin($appName, $code);
+  
+  }
+
 }
