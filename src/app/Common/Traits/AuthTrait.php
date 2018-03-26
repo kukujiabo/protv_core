@@ -191,7 +191,9 @@ trait AuthTrait {
     
       'wx_mnopenid' => $openId,
 
-      'created_at' => date('Y-m-d H:i:s')
+      'created_at' => date('Y-m-d H:i:s'),
+
+      'reference' => 1
 
     ];
 
