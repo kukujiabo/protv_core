@@ -74,7 +74,7 @@ class Wechat extends BaseApi {
 
     $params = $this->retriveRuleParams(__FUNCTION__);
   
-    return $this->dm->getOpenId($params['open_id']);
+    return $this->dm->getOpenId($params['code']);
   
   }
 

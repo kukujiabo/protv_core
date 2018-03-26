@@ -34,9 +34,9 @@ class WechatDm {
   /**
    * 获取openID
    */
-  public function getOpenId($openId) {
+  public function getOpenId($code) {
   
-    return $this->_wxsv->getOpenId($openId);
+    return $this->_wxsv->getOpenId($code);
   
   }
 
