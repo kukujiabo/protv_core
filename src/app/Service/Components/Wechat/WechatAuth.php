@@ -2,6 +2,7 @@
 namespace App\Service\Components\Wechat;
 
 use App\Library\RedisClient;
+use App\Library\Http;
 
 /**
  * 微信权限服务
