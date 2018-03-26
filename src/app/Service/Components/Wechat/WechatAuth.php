@@ -20,7 +20,7 @@ class WechatAuth {
    */
   public static function getAccessToken($appid, $appsecret) {
 
-    $accessToken = RedisClient('wechat_auth', $appid);
+    $accessToken = RedisClient::get('wechat_auth', $appid);
 
     if (!$accessToken || !$accessToken->access_token || $accessToken->expire_at < time()) {
 
