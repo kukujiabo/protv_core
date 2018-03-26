@@ -107,7 +107,7 @@ trait AuthTrait {
     
     }
 
-    $auth[$this->_secret] = empty($auth[$this->_secret]) ? '' : true;
+    $auth[$this->_secret] = empty($auth[$this->_secret]) ? false : true;
 
     $auth['session_time'] = time();
 
