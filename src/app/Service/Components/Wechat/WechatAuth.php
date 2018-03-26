@@ -25,7 +25,7 @@ class WechatAuth {
 
     if (!$accessToken || !$accessToken->access_token || $accessToken->expire_at < time()) {
 
-      $url = str_replace(array('{APPID}', '{APPSECRET}'), array($appid, $appsecret), WechatApi::GET_ACCESS_TOKENS);
+      $url = str_replace(array('{APPID}', '{APPSECRET}'), array($appid, $appsecret), WechatApi::USER_ACCESS_TOKEN:);
 
       $result = json_decode(Http::httpGet($url), true);  
 
