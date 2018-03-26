@@ -9,7 +9,7 @@ class WechatDm {
 
   public function __construct() {
   
-    $this->_wxsv = new WechatSv();
+    $this->_wxsv = new WechatAppSv();
   
   }
 
