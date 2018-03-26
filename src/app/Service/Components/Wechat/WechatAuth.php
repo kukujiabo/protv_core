@@ -27,9 +27,9 @@ class WechatAuth {
 
       $url = str_replace(array('{APPID}', '{APPSECRET}'), array($appid, $appsecret), WechatApi::GET_ACCESS_TOKEN);
 
-      $result = json_decode(Http::httpGet($url), true);  
+      $result = json_decode(Http::httpGet($url));  
 
-      if ($result['errcode']) {
+      if ($result->errcode) {
       
         //todo record error.
       
@@ -37,15 +37,15 @@ class WechatAuth {
       
         $newAccessToken = [
         
-          'access_token' => $result['access_token'],
+          'access_token' => $result->access_token,
 
-          'expire_at' => time() + $result['expires_in'] - 5
+          'expire_at' => time() + $result->expires_in - 5
         
         ];
 
         RedisClient::set('wechat_auth', $appid, $newAccessToken);
 
-        return $result['access_token'];
+        return $result->access_token;
       
       }
 
@@ -55,6 +55,44 @@ class WechatAuth {
     
     }
   
+  }
+
+  /**
+   * 获取用户openid
+   *
+   * @param string appid
+   * @param string appsecret
+   * @param string code
+   *
+   * @return
+   */
+  public static function getOpenId($appid, $appsecret, $code) {
+  
+    /**
+     * 读取配置url
+     */
+    $url = str_replace(
+
+      array('{APPID}', '{APPSECRET}', '{CODE}'), 
+
+      array($appid, $appsecret, $code), 
+
+      WechatApi::GET_MIN_OPENID
+
+    );
+  
+    $result = json_decode(Http::httpGet($url));
+
+    if ($result->errcode) {
+    
+      //todo handle api error
+    
+    } else {
+    
+      return $result;
+    
+    }
+
   }
 
 }

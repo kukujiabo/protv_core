@@ -26,6 +26,12 @@ class Wechat extends BaseApi {
 
       'getAccessToken' => [
       
+      ],
+
+      'getOpenId' => [
+
+        'code' => 'code|string|true||微信code'
+      
       ]
       
     ]);
@@ -55,6 +61,20 @@ class Wechat extends BaseApi {
   public function getAccessToken() {
   
     return $this->dm->getAccessToken();
+  
+  }
+
+  /**
+   * 获取微信用户openid
+   * @desc 获取微信用户openid
+   *
+   * @return
+   */
+  public function getOpenId() {
+
+    $params = $this->retriveRuleParams(__FUNCTION__);
+  
+    return $this->dm->getOpenId($params['open_id']);
   
   }
 

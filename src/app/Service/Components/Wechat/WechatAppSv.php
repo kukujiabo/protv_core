@@ -47,11 +47,23 @@ class WechatAppSv extends ConfigSv {
    *
    * @return string accessToken
    */
-  public function getAccessToken($appName = '') {
+  public function getAccessToken() {
   
     return WechatAuth::getAccessToken($this->_appid, $this->_appsecret);  
   
   }
 
+  /**
+   * 获取openid
+   *
+   * @param string code
+   *
+   * @return object
+   */
+  public function getOpenId($code) {
+  
+    return WechatAuth::getOpenId($this->_appid, $this->_appsecret, $code);
+  
+  }
 
 }
