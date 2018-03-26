@@ -28,7 +28,7 @@ class Wechat extends BaseApi {
       
       ]
       
-    ])
+    ]);
   
   }
 
