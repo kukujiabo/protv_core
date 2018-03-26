@@ -33,21 +33,19 @@ class WechatAuth {
       
         //todo record error.
       
-      } else {
-      
-        $newAccessToken = [
-        
-          'access_token' => $result->access_token,
-
-          'expire_at' => time() + $result->expires_in - 5
-        
-        ];
-
-        RedisClient::set('wechat_auth', $appid, $newAccessToken);
-
-        return $result->access_token;
-      
       }
+      
+      $newAccessToken = [
+      
+        'access_token' => $result->access_token,
+
+        'expire_at' => time() + $result->expires_in - 5
+      
+      ];
+
+      RedisClient::set('wechat_auth', $appid, $newAccessToken);
+
+      return $result->access_token;
 
     } else {
     
@@ -87,11 +85,9 @@ class WechatAuth {
     
       //todo handle api error
     
-    } else {
-    
-      return $result;
-    
     }
+
+    return $result;
 
   }
 
