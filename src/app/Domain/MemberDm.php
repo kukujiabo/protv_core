@@ -113,6 +113,21 @@ class MemberDm {
     
     }
 
+    if (isset($params['wx_city'])) {
+
+      $data['wx_city'] = $params['wx_city'];
+    
+    }
+    if (isset($params['wx_province'])) {
+
+      $data['wx_province'] = $params['wx_province'];
+    
+    }
+    if (isset($params['portrait'])) {
+
+      $data['portrait'] = $params['portrait'];
+    
+    }
     if (isset($params['sex'])) {
 
       $data['sex'] = $params['sex'];
