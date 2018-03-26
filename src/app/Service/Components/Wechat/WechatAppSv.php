@@ -34,9 +34,9 @@ class WechatAppSv extends ConfigSv {
    */
   public function editAppConf($appName, $appId, $appSecret, $title) {
   
-    $res1 = $this->editConfig('wechat', 'app', $appName, "{$appName}_appid", $appId, $title);
+    $res1 = $this->editConfig('wechat', 'app', "{$appName}_appid", $appId, $title);
 
-    $res2 = $this->editConfig('wechat', 'app', $appName, "{$appName}_appsecret", $appSecret, $title);
+    $res2 = $this->editConfig('wechat', 'app', "{$appName}_appsecret", $appSecret, $title);
 
     return $res1 || $res2;
   
