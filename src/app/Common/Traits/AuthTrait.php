@@ -197,7 +197,7 @@ trait AuthTrait {
 
     if ($unionId) {
     
-      $new['wx_unionid'] = $unionId
+      $new['wx_unionid'] = $unionId;
     
     }
 
