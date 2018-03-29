@@ -77,7 +77,7 @@ class VideoCollectionSv extends BaseService {
 
     $query = [
     
-      'uid' => $uid,
+      'member_id' => $uid,
 
       'video_id' => $videoId,
 
