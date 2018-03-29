@@ -97,7 +97,7 @@ class MemberDm {
    */
   public function editMember($params) {
 
-    $id = $params['member_id'];
+    $id = $params['id'];
 
     $data = array();
 
