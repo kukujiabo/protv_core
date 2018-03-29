@@ -5,7 +5,7 @@ namespace App\Model;
  * 视频收藏
  *
  */
-class VideoCollection {
+class VideoCollection extends BaseModel {
 
 
 
