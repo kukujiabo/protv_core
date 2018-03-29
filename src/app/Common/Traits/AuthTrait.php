@@ -77,7 +77,7 @@ trait AuthTrait {
    */
   public function createAuthToken($key) {
   
-    $secretKey = md5($account . time());
+    $secretKey = md5($account . time()) . md5(rand(100000, 999999));
 
     $this->update($key, array($this->_auth => $secretKey));
 
