@@ -55,7 +55,7 @@ class VideoCollection extends BaseApi {
   
     $params = $this->retriveRuleParams(__FUNCTION__);
 
-    return $this->addUserCollection($params['uid'], $params['video_id']);
+    return $this->dm->addUserCollection($params['uid'], $params['video_id']);
   
   }
 
@@ -69,7 +69,7 @@ class VideoCollection extends BaseApi {
   
     $params = $this->retriveRuleParams(__FUNCTION__);
 
-    return $this->cancelUserCollection($params['uid'], $params['video_id']);
+    return $this->dm->cancelUserCollection($params['uid'], $params['video_id']);
   
   }
 
@@ -83,7 +83,7 @@ class VideoCollection extends BaseApi {
   
     $params = $this->retriveRuleParams(__FUNCTION__);
   
-    return $this->getUserCollectionIds($params['uid'], $params['order'], $params['page'], $params['page_size']);
+    return $this->dm->getUserCollectionIds($params['uid'], $params['order'], $params['page'], $params['page_size']);
   
   }
 
