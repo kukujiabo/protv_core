@@ -38,7 +38,7 @@ class Member extends BaseApi {
 
       'editMember' => [
       
-        'member_id' => 'id|int|true||用户表序号',
+        'id' => 'id|int|true||用户表序号',
 
         'member_name' => 'member_name|string|false||用户昵称',
 
