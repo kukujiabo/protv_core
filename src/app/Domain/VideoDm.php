@@ -98,9 +98,9 @@ class VideoDm {
    *
    * @return array 
    */
-  public function detail($id) {
+  public function detail($uid, $id) {
   
-    return $this->_vsv->findOne($id);
+    return $this->_vsv->detail($uid, $id);
   
   }
 

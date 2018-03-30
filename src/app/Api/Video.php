@@ -91,6 +91,8 @@ class Video extends BaseApi {
       ],
 
       'detail' => [
+
+        'uid' => 'uid|int|false||用户id',
       
         'id' => 'id|int|true||视频id'
       
@@ -193,7 +195,7 @@ class Video extends BaseApi {
 
     $params = $this->retriveRuleParams(__FUNCTION__); 
 
-    return $this->dm->detail($params['id']);
+    return $this->dm->detail($params['uid'], $params['id']);
   
   }
 

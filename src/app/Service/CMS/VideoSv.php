@@ -280,8 +280,46 @@ class VideoSv extends BaseService {
   
   }
 
-  public function detail() {
+  /**
+   * 获取视频详情，附带用户收藏，点赞等信息
+   *
+   * @param int uid
+   * @param int id
+   *
+   * @return
+   */
+  public function detail($uid, $id) {
+
+    $video = $this->findOne($id);
+
+    if (!$video) {
+    
+      return null;
+    
+    }
+
+    /**
+     * 当uid存在时，判断是否被收藏
+     */
+    if ($uid) {
+
+      $vct = new VideoCollectionSv();
+
+      $collection = $vct->findOne([
+      
+        'member_id' => $uid,
+
+        'video_id' => $id,
+      
+        'active' => 1
+      
+      ]);
+
+      $collection ? $video['collect'] = true : $video['collect'] = false;
+
+    }
   
+    return $video;
   
   }
 
