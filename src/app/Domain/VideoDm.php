@@ -85,9 +85,9 @@ class VideoDm {
    *
    * @return
    */
-  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $order, $all, $page, $pageSize) {
+  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all, $page, $pageSize) {
   
-    return $this->_vsv->listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $order, $all, $page, $pageSize); 
+    return $this->_vsv->listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all, $page, $pageSize); 
   
   }
 

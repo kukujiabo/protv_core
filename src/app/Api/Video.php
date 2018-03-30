@@ -80,6 +80,8 @@ class Video extends BaseApi {
 
         'status' => 'status|int|false||视频状态',
 
+        'created_at' => 'created_at|string|false||创建时间',
+
         'order' => 'order|int|false|id desc|排序',
 
         'all' => 'all|int|false|0|是否全部加载',
@@ -178,6 +180,7 @@ class Video extends BaseApi {
       $params['album_id'],
       $params['keyword'],
       $params['status'],
+      $params['created_at'],
       $params['order'],
       $params['all'],
       $params['page'],

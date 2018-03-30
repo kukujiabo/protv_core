@@ -115,7 +115,7 @@ class VideoSv extends BaseService {
    *
    * @return boolean true/false
    */
-  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $order, $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
+  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
   
     $options = [];
 
@@ -130,6 +130,8 @@ class VideoSv extends BaseService {
     if (isset($keyword)) $options['title'] = $keyword;
 
     if (isset($status)) $options['status'] = $status;
+
+    if (isset($createdAt)e $options['status'] = $createdAt;
 
     $videos = [];
 
