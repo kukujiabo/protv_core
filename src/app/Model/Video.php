@@ -12,7 +12,9 @@ class Video extends BaseModel {
   
     'title' => 'like',
 
-    'id' => 'in'
+    'id' => 'in',
+
+    'created_at' => 'range'
   
   ];
 
