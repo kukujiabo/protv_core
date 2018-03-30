@@ -14,7 +14,7 @@ class VideoFavoriteDm {
 
   public function __construct() {
   
-    $this>_vfsv = new VideoFavoriteSv();
+    $this->_vfsv = new VideoFavoriteSv();
   
   }
 
