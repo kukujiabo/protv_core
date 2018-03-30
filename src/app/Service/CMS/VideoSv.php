@@ -299,6 +299,15 @@ class VideoSv extends BaseService {
     }
 
     /**
+     * 获取专辑名称
+     */
+    $vcsv = new VideoCategorySv();
+
+    $category = $vcsv->findOne($video['category_id'];
+
+    $video['category_name'] = $category['name'];
+
+    /**
      * 当uid存在时，判断是否被收藏
      */
     if ($uid) {
