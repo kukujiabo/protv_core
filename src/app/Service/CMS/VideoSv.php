@@ -131,7 +131,7 @@ class VideoSv extends BaseService {
 
     if (isset($status)) $options['status'] = $status;
 
-    if (isset($createdAt)e $options['status'] = $createdAt;
+    if (isset($createdAt)) $options['status'] = $createdAt;
 
     $videos = [];
 
