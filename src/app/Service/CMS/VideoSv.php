@@ -315,7 +315,21 @@ class VideoSv extends BaseService {
       
       ]);
 
+      $vft = new VideoFavoriteSv();
+
+      $favorite = $vft->findOne([
+      
+        'member_id' => $uid,
+
+        'video_id' => $id,
+
+        'active' => 1
+      
+      ]);
+
       $collection ? $video['collect'] = true : $video['collect'] = false;
+
+      $favorite ? $video['favorite'] = true : $video['favorite'] = false;
 
     }
   
