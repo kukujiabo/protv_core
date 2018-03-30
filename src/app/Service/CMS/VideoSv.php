@@ -303,7 +303,7 @@ class VideoSv extends BaseService {
      */
     $vcsv = new VideoCategorySv();
 
-    $category = $vcsv->findOne($video['category_id'];
+    $category = $vcsv->findOne($video['category_id']);
 
     $video['category_name'] = $category['name'];
 
