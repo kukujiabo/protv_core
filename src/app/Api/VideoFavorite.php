@@ -43,7 +43,7 @@ class VideoFavorite extends BaseApi {
 
     $params = $this->retriveRuleParams(__FUNCTION__);
   
-    return $this->dm->addUserFavoriteVideo($params['uid'], $params['video_id']);
+    return $this->dm->addUserFavorVideo($params['uid'], $params['video_id']);
   
   }
 
