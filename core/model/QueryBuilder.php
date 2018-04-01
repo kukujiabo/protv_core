@@ -68,7 +68,7 @@ class QueryBuilder {
               
                 $where[" {$key} {$op} ? "] = $operations[1];
               
-              } elseif (strpos($operations[0], 'g') !== false && strpos($operations[0], 'l') >= 0) {
+              } elseif (strpos($operations[0], 'l') !== false && strpos($operations[0], 'l') >= 0) {
               
                 $op = $operations[0] == 'el' ? '<=' : '<';
               
