@@ -137,7 +137,7 @@ class VideoSv extends BaseService {
 
     if (isset($sort)) $options['sort'] = $sort;
 
-    if (isset($sort)) $options['times'] = $times;
+    if (isset($times)) $options['times'] = $times;
 
     $videos = [];
 
