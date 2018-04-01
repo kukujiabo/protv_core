@@ -33,7 +33,7 @@ class VideoSv extends BaseService {
    *
    * @return boolean true/false
    */
-  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration) {
+  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration, $sort) {
 
     $newVideo = [
     
@@ -61,7 +61,11 @@ class VideoSv extends BaseService {
 
       'duration' => $duration,
 
-      'created_at' => date('Y-m-d H:i:s')
+      'sort' => $sort,
+
+      'created_at' => date('Y-m-d H:i:s'),
+
+      'times' => time()
     
     ];
 
@@ -115,7 +119,7 @@ class VideoSv extends BaseService {
    *
    * @return boolean true/false
    */
-  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
+  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $sort, $times, $order, $all = 0, $page = 1, $pageSize = 20, $fields = '*') {
   
     $options = [];
 
@@ -131,7 +135,9 @@ class VideoSv extends BaseService {
 
     if (isset($status)) $options['status'] = $status;
 
-    if (isset($createdAt)) $options['status'] = $createdAt;
+    if (isset($sort)) $options['sort'] = $sort;
+
+    if (isset($sort)) $options['times'] = $times;
 
     $videos = [];
 

@@ -36,6 +36,8 @@ class Video extends BaseApi {
 
         'duration' => 'duration|string|true||视频时长',
 
+        'sort' => 'sort|int|false||视频排序',
+
         'status' => 'status|int|true||视频状态'
       
       ],
@@ -62,7 +64,9 @@ class Video extends BaseApi {
 
         'duration' => 'duration|string|false||视频时长',
 
-        'status' => 'status|int|false||视频状态'
+        'status' => 'status|int|false||视频状态',
+
+        'sort' => 'sort|int|false||视频排序'
       
       ],
 
@@ -82,9 +86,13 @@ class Video extends BaseApi {
 
         'created_at' => 'created_at|string|false||创建时间',
 
+        'times' => 'times|int|false|id desc|时间戳',
+
         'order' => 'order|int|false|id desc|排序',
 
         'all' => 'all|int|false|0|是否全部加载',
+
+        'sort' => 'sort|int|false||视频排序',
 
         'page' => 'page|int|false|1|页码',
 
@@ -180,7 +188,8 @@ class Video extends BaseApi {
       $params['album_id'],
       $params['keyword'],
       $params['status'],
-      $params['created_at'],
+      $params['sort'],
+      $params['times'],
       $params['order'],
       $params['all'],
       $params['page'],

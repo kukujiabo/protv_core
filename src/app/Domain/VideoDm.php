@@ -31,9 +31,9 @@ class VideoDm {
    *
    * @return 
    */
-  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration) {
+  public function addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration, $sort) {
   
-    return $this->_vsv->addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration);
+    return $this->_vsv->addVideo($outId, $authorId, $memberId, $categoryId, $cover, $albumId, $title, $brief, $introduction, $url, $status, $duration, $sort);
   
   }
 
@@ -51,7 +51,7 @@ class VideoDm {
    *
    * @return boolean true/false
    */
-  public function editVideo($id, $outId, $categoryId, $albumId, $cover, $title, $brief, $introduction, $url, $status, $duration) {
+  public function editVideo($id, $outId, $categoryId, $albumId, $cover, $title, $brief, $introduction, $url, $status, $duration, $sort) {
 
     $data = [];
 
@@ -65,6 +65,7 @@ class VideoDm {
     if (isset($url)) $data['url'] = $url;
     if (isset($status)) $data['status'] = $status;
     if (isset($duration)) $data['duration'] = $duration;
+    if (isset($sort)) $data['sort'] = $sort;
 
     return $this->_vsv->editVideo($id, $data);
   
@@ -85,9 +86,9 @@ class VideoDm {
    *
    * @return
    */
-  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all, $page, $pageSize) {
+  public function listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $sort, $times, $order, $all, $page, $pageSize) {
   
-    return $this->_vsv->listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $createdAt, $order, $all, $page, $pageSize); 
+    return $this->_vsv->listQuery($outId, $memberId, $categoryId, $albumId, $keyword, $status, $sort, $times, $order, $all, $page, $pageSize); 
   
   }
 

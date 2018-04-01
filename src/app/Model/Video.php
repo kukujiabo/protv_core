@@ -14,7 +14,11 @@ class Video extends BaseModel {
 
     'id' => 'in',
 
-    'created_at' => 'range'
+    'created_at' => 'range',
+
+    'sort' => 'range',
+
+    'times' => 'range'
   
   ];
 
