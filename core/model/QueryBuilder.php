@@ -62,13 +62,13 @@ class QueryBuilder {
                *
                * eg. '[e]g|min', '[e]l|max'
                */
-              if (strpos($operations[0], 'g') >= 0) {
+              if (strpos($operations[0], 'g') !== false && strpos($operations[0], 'g') >= 0) {
 
                 $op = $operations[0] == 'eg' ? '>=' : '>';
               
                 $where[" {$key} {$op} ? "] = $operations[1];
               
-              } elseif (strpos($operations[0], 'l') >= 0) {
+              } elseif (strpos($operations[0], 'g') !== false && strpos($operations[0], 'l') >= 0) {
               
                 $op = $operations[0] == 'el' ? '<=' : '<';
               
