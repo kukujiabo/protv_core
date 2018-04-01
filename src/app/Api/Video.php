@@ -86,7 +86,7 @@ class Video extends BaseApi {
 
         'created_at' => 'created_at|string|false||创建时间',
 
-        'times' => 'times|int|false|id desc|时间戳',
+        'times' => 'times|int|false||时间戳',
 
         'order' => 'order|int|false|id desc|排序',
 
