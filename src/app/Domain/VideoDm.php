@@ -136,13 +136,13 @@ class VideoDm {
 
     $idArr = [];
 
-    foreach($vids as $vid) {
+    foreach($vids['list'] as $vid) {
     
       array_push($idArr, $vid['video_id']);
     
     }
 
-    $videos = $this->_vsv->queryList([ 'id' => implode(',', $idArr) ], '*', $order, $page, $pageSize);
+    $videos = $this->_vsv->all([ 'id' => implode(',', $idArr) ], ' ');
 
     return $videos;
   
