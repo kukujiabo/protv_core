@@ -142,7 +142,7 @@ class VideoDm {
     
     }
 
-    $videos = $this->_vsv->all([ 'id' => implode(',', $idArr) ]);
+    $videos = $this->_vsv->addVideoCategoryField($this->_vsv->all([ 'id' => implode(',', $idArr) ]));
 
     return $videos;
   

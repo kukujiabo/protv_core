@@ -354,5 +354,45 @@ class VideoSv extends BaseService {
   
   }
 
+  /**
+   * 视频数据添加分类名称字段
+   *
+   * @param array videos
+   *
+   * @return list
+   */
+  public function addVideoCategoryField($videos) {
+
+    $categories = [];  
+
+    foreach($videos as $video) {
+    
+      array_push($categories, $video['category_id']);
+    
+    }
+  
+    $categorySv = new VideoCategorySv();
+
+    $categoryCondition = [ 'id' => implode(',', $categories) ];
+
+    $categoryData = $categorySv->all($categoryCondition);
+
+    foreach($videos as $key => $video) {
+    
+      foreach($categoryData as $ca) {
+      
+        if ($ca['id'] = $video['category_id']) {
+        
+          $videos[$key]['category_name'] = $ca['name'];
+        
+        }
+      
+      }
+    
+    }
+
+    return $videos;
+  
+  }
 
 }
