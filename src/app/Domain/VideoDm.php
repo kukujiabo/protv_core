@@ -132,6 +132,16 @@ class VideoDm {
   
     $vids = $this->_vcsv->getUserCollectionIds($uid, $order, $page, $pageSize);
 
+    $idArr = [];
+
+    foreach($vids as $vid) {
+    
+      array_push($idArr, $vid['video_id']);
+    
+    }
+
+    $videos = $this->_vcsv->queryList([ 'id' => implode(',', $idArr) ], '*', $order, $page, $pageSize);
+
     return $vids;
   
   }
