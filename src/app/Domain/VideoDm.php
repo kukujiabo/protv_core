@@ -2,6 +2,7 @@
 namespace App\Domain;
 
 use App\Service\CMS\VideoSv;
+use App\Service\CMS\VideoCollectionSv;
 
 /**
  * 视频服务域
@@ -15,6 +16,8 @@ class VideoDm {
   public function __construct() {
   
     $this->_vsv = new VideoSv();
+
+    $this->_vcsv = new VideoCollectionSv();
   
   }
 
@@ -115,6 +118,21 @@ class VideoDm {
   public function remove($id) {
   
     return $this->_vsv->remove($id);
+  
+  }
+
+  /**
+   * 查询用户收藏的视频
+   *
+   * @param int uid
+   *
+   * @return array list
+   */
+  public function getUserCollectVideos($uid, $order, $page, $pageSize) {
+  
+    $vids = $this->_vcsv->getUserCollectionIds($uid, $order, $page, $pageSize);
+
+    return $vids;
   
   }
 
