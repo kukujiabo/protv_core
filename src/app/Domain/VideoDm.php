@@ -13,6 +13,8 @@ class VideoDm {
 
   protected $_vsv;
 
+  protected $_vcsv;
+
   public function __construct() {
   
     $this->_vsv = new VideoSv();
@@ -142,7 +144,7 @@ class VideoDm {
 
     $videos = $this->_vsv->queryList([ 'id' => implode(',', $idArr) ], '*', $order, $page, $pageSize);
 
-    return $vids;
+    return $videos;
   
   }
 
