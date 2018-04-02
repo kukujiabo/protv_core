@@ -144,7 +144,23 @@ class VideoDm {
 
     $videos = $this->_vsv->addVideoCategoryField($this->_vsv->all([ 'id' => implode(',', $idArr) ]));
 
-    return $videos;
+    $sortVideos = [];
+
+    foreach($idArr as $id) {
+    
+      foreach($videos as $video) {
+      
+        if ($id == $video['id']) {
+        
+          array_push($sortVideos, $video);
+        
+        }
+      
+      } 
+    
+    }
+
+    return $sortVideos;
   
   }
 
