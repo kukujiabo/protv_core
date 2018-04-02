@@ -140,7 +140,7 @@ class VideoDm {
     
     }
 
-    $videos = $this->_vcsv->queryList([ 'id' => implode(',', $idArr) ], '*', $order, $page, $pageSize);
+    $videos = $this->_vsv->queryList([ 'id' => implode(',', $idArr) ], '*', $order, $page, $pageSize);
 
     return $vids;
   
