@@ -188,7 +188,7 @@ class VideoDm {
    */
   public function getUserFavoriteVideos($uid, $order, $page, $pageSize) {
   
-    $vids = $this->_vfsv->getUserFavoriteIds();
+    $vids = $this->_vfsv->getUserFavoriteIds($uid, $order, $page, $pageSize);
 
     $idArr = [];
 
