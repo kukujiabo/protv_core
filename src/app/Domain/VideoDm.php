@@ -165,8 +165,18 @@ class VideoDm {
     
     }
 
-    return $sortVideos;
-  
+    $returnData = [
+    
+      'list' => $sortVideos,
+
+      'page' => $vids['page'],
+
+      'page_size' => $vids['page_size']
+    
+    ];
+
+    return $returnData;
+
   }
 
   /**
@@ -206,7 +216,17 @@ class VideoDm {
     
     }
 
-    return $sortVideos;
+    $returnData = [
+    
+      'list' => $sortVideos,
+
+      'page' => $vids['page'],
+
+      'page_size' => $vids['page_size']
+    
+    ];
+
+    return $returnData;
   
   }
 
