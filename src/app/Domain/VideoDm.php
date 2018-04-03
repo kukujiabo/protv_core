@@ -171,7 +171,7 @@ class VideoDm {
 
       'page' => $vids['page'],
 
-      'page_size' => $vids['page_size']
+      'total' => $vids['total']
     
     ];
 
@@ -222,7 +222,7 @@ class VideoDm {
 
       'page' => $vids['page'],
 
-      'page_size' => $vids['page_size']
+      'total' => $vids['total']
     
     ];
 
