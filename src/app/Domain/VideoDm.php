@@ -15,11 +15,15 @@ class VideoDm {
 
   protected $_vcsv;
 
+  protected $_vfsv;
+
   public function __construct() {
   
     $this->_vsv = new VideoSv();
 
     $this->_vcsv = new VideoCollectionSv();
+
+    $this->_vfsv = new VideoFavoriteSv();
   
   }
 
@@ -173,7 +177,7 @@ class VideoDm {
    */
   public function getUserFavoriteVideos($uid, $order, $page, $pageSize) {
   
-    $vids = $this->_vcsv->getUserFavoriteIds();
+    $vids = $this->_vfsv->getUserFavoriteIds();
 
     $idArr = [];
 
