@@ -189,7 +189,7 @@ class VideoDm {
   
     foreach($idArr as $id) {
     
-      foreach($id == $video['id']) {
+      foreach($videos as $video) {
       
         if ($id == $video['id']) {
         
