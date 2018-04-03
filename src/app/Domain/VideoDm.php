@@ -3,6 +3,7 @@ namespace App\Domain;
 
 use App\Service\CMS\VideoSv;
 use App\Service\CMS\VideoCollectionSv;
+use App\Service\CMS\VideoFavoriteSv;
 
 /**
  * 视频服务域
