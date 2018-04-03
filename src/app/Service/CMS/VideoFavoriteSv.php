@@ -9,6 +9,32 @@ class VideoFavoriteSv extends BaseService {
   use CurdSv;
 
   /**
+   * 查询用户喜欢的视频
+   *
+   * @param int uid
+   * @param string order
+   * @param int page
+   * @param int pageSize
+   *
+   * @return array
+   */
+  public function getUserFavoriteIds($uid, $order = 'created_at desc', $page = 1, $pageSize = 10) {
+  
+    $query = [
+    
+      'member_id' => $uid
+
+      'active' => 1
+    
+    ];
+
+    $result = $this->queryList($query, 'video_id', $order, $page, $pageSize);
+  
+    return $result;
+
+  }
+
+  /**
    * 添加用户喜欢的视频
    *
    * @param int uid

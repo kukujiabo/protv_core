@@ -164,4 +164,45 @@ class VideoDm {
   
   }
 
+  /**
+   * 查询用户喜欢的视频
+   *
+   * @param int uid
+   *
+   * @return array list
+   */
+  public function getUserFavoriteVideos($uid, $order, $page, $pageSize) {
+  
+    $vids = $this->_vcsv->getUserFavoriteIds();
+
+    $idArr = [];
+
+    foreach($vids['list'] as $vid) {
+    
+      array_push($idArr, $vid['video_id']);
+    
+    }
+
+    $videos = $this->addVideoCategoryField($this->_vsv->all([ 'id' => implode(',', $idArr) ]));
+
+    $sortVideos = [];
+  
+    foreach($idArr as $id) {
+    
+      foreach($id == $video['id']) {
+      
+        if ($id == $video['id']) {
+        
+          array_push($sortVideos, $video);
+        
+        }
+      
+      }
+    
+    }
+
+    return $sortVideos;
+  
+  }
+
 }
