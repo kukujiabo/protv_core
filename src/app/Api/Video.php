@@ -116,7 +116,7 @@ class Video extends BaseApi {
 
       'getUserCollectVideos' => [
       
-        'uid' => 'id|int|true||用户id',
+        'uid' => 'uid|int|true||用户id',
 
         'order' => 'order|string|false||排序',
 
