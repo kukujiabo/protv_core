@@ -22,7 +22,7 @@ class VideoFavoriteSv extends BaseService {
   
     $query = [
     
-      'member_id' => $uid
+      'member_id' => $uid,
 
       'active' => 1
     
