@@ -12,7 +12,7 @@ class SearchHistoryDm {
 
   public function __construct() {
   
-    $this->shsv = new SearchHistorySv();
+    $this->_shsv = new SearchHistorySv();
   
   }
 
