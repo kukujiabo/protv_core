@@ -34,7 +34,7 @@ class SearchHistorySv extends BaseService {
    *
    * @return int id
    */
-  public function addMemberSearchList($uid, $content) {
+  public function addMemberSearchHistory($uid, $content) {
   
     $newHis = [
     
