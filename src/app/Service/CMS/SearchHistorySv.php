@@ -20,9 +20,23 @@ class SearchHistorySv extends BaseService {
    *
    * @return
    */
-  public function getMemberSearchHistory($uid, $order, $page = 1, $pageSize = 20) {
+  public function getMemberSearchHistory($uid, $order, $page = 1, $pageSize = 100) {
 
-    return $this->queryList([ 'member_id' => $uid ], '*', $order, $page, $pageSize);
+    $history = $this->queryList([ 'member_id' => $uid ], '*', $order, $page, $pageSize);
+
+    $returnData = [];
+
+    foreach($history as $h) {
+    
+      if (!in_array($h['content'], $returnData)) {
+      
+        array_push($returnData, $h['content']);
+      
+      }
+    
+    }
+
+    return $returnData;
   
   }
 
