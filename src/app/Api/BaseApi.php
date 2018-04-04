@@ -4,6 +4,7 @@ namespace App\Api;
 
 use PhalApi\Api;
 use App\Service\ActionLog;
+use App\Exception\LogException;
 
 /**
  * 0.1 接口基础服务
@@ -123,6 +124,12 @@ class BaseApi extends Api {
 
         $params[$paramName] = $this->$paramName;
 
+      }
+
+      if ($funcRules[$paramName]['require'] && ($_REQUEST[$paramName] == '' || $_REQUEST[$paramName] == NULL)) {
+      
+        throw new LogException("缺少参数{$paramName}!", 1001, json_encode($_REQUEST));
+      
       }
     
     }

@@ -21,7 +21,7 @@ class SearchHistorySv extends BaseService {
    * @return
    */
   public function getMemberSearchHistory($uid, $order, $page = 1, $pageSize = 20) {
-  
+
     return $this->queryList([ 'member_id' => $uid ], '*', $order, $page, $pageSize);
   
   }
