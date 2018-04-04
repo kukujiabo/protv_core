@@ -1,12 +1,17 @@
 <?php
 namespace App\Service\CMS;
 
+use App\Service\BaseService;
+use Core\Service\CurdSv;
+
 /**
  * 视频搜索历史服务
  *
  * @author Meroc Chen <398515393@qq.com>
  */
 class SearchHistorySv extends BaseService {
+
+  use CurdSv;
 
   /**
    * 获取会员查询历史
