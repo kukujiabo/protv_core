@@ -26,7 +26,7 @@ class SearchHistorySv extends BaseService {
 
     $returnData = [];
 
-    foreach($history as $h) {
+    foreach($history['list'] as $h) {
     
       if (!in_array($h['content'], $returnData)) {
       
