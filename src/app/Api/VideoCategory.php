@@ -18,15 +18,15 @@ class VideoCategory extends BaseApi {
 
         'parent' => 'parent|int|false||上级分类id',
 
-        'description' => 'description|string|true||分类描述',
+        'description' => 'description|string|false||分类描述',
 
-        'display_order' => 'display_order|int|true||排序，值越大越靠前',
+        'display_order' => 'display_order|int|false||排序，值越大越靠前',
 
-        'status' => 'status|int|true||分类状态：1.启用，2.禁用',
+        'status' => 'status|int|false||分类状态：1.启用，2.禁用',
         
-        'brief' => 'brief|string|true||分类简介',
+        'brief' => 'brief|string|false||分类简介',
 
-        'thumbnail' => 'thumbnail|string|true||分类图标'
+        'thumbnail' => 'thumbnail|string|false||分类图标'
       
       ],
 
