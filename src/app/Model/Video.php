@@ -18,7 +18,9 @@ class Video extends BaseModel {
 
     'sort' => 'range',
 
-    'times' => 'range'
+    'times' => 'range',
+
+    'brief' => 'like'
   
   ];
 
