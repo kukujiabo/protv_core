@@ -147,52 +147,8 @@ class VideoSv extends BaseService {
     
     } else {
   
-      $videos =$this->queryList($options, $fields, $order, $page, $pageSize);
+      $videos = $this->queryList($options, $fields, $order, $page, $pageSize);
 
-    }
-
-    if ($keyword) {
-
-      $ohter = $options;
-
-      unset($other['title']);
-    
-      $other['brief'] = $keyword;
-
-      if ($all) {
-      
-        $ovis = $this->all($other, $order);
-      
-      } else {
-  
-        $ovis =$this->queryList($other, $fields, $order, $page, $pageSize);
-
-      }
-      
-      foreach($videos as $video) {
-
-        $in = false;
-        
-        foreach($ovis as $ovi) {
-        
-          if ($ovi['id'] == $video['id']) {
-          
-            $in = true;
-
-            break;
-          
-          }
-
-        }
-
-        if (!$in) {
-        
-          array_push($videos, $ovi);
-        
-        }
-      
-      }
-    
     }
 
     $albums = [];
