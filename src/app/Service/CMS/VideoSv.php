@@ -151,6 +151,50 @@ class VideoSv extends BaseService {
 
     }
 
+    if ($keyword) {
+
+      $ohter = $options;
+
+      unset($other['title']);
+    
+      $other['brief'] = $keyword;
+
+      if ($all) {
+      
+        $ovis = $this->all($other, $order);
+      
+      } else {
+  
+        $ovis =$this->queryList($other, $fields, $order, $page, $pageSize);
+
+      }
+      
+      foreach($videos as $video) {
+
+        $in = false;
+        
+        foreach($ovis as $ovi) {
+        
+          if ($ovi['id'] == $video['id']) {
+          
+            $in = true;
+
+            break;
+          
+          }
+
+        }
+
+        if (!$in) {
+        
+          array_push($videos, $ovi);
+        
+        }
+      
+      }
+    
+    }
+
     $albums = [];
     $categories = [];
     $members = [];
